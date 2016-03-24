@@ -13,11 +13,13 @@ let gulp = require('gulp'),
     addsrc = require('gulp-add-src'),
     less = require('gulp-less'),
     LessPluginCleanCSS = require('less-plugin-clean-css'),
-    cleancss = new LessPluginCleanCSS({ advanced: true });
+    cleancss = new LessPluginCleanCSS({ advanced: true }),
+    jscs = require('gulp-jscs'),
+    stylishJcs = require('gulp-jscs-stylish');
 
 let paths = {
     sources: 'src/**/*.js',
-    views: 'src/**/*.html',
+    views: 'lst/ui/templates/**/*.html',
     less: 'src/**/*.less'
 };
 
@@ -28,7 +30,13 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('test', ['lint', 'build'], function(done) {
+gulp.task('checkstyle', function() {
+    return gulp.src(paths.sources)
+        .pipe(jscs('.jscsrc'))
+        .pipe(stylishJcs());
+});
+
+gulp.task('test', ['lint', 'checkstyle', 'build'], function(done) {
     new Server({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
@@ -39,7 +47,7 @@ gulp.task('buildJs', function() {
     let stream = gulp.src(paths.views)
         .pipe(templateCache({
             standalone: true,
-            module: 'angular.lst.rating.ui.templates',
+            module: 'lst.rating.ui.templates',
             root: 'lst/ui/templates/',
             moduleSystem: 'IIFE'
         }))
@@ -49,9 +57,9 @@ gulp.task('buildJs', function() {
             single_quotes: true
         }))
         .pipe(sourcemaps.init())
-        .pipe(concat('angular-lst-rating.js'))
+        .pipe(concat('lst-rating.js'))
         .pipe(gulp.dest('dist'))
-        .pipe(rename('angular-lst-rating.min.js'))
+        .pipe(rename('lst-rating.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist'));

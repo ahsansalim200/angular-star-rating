@@ -1,4 +1,4 @@
-.angular-lst-rating {
+.lst-rating {
     @yellow:            #fdd03a;
     @red:               #cb333f;
     @grayDark:          #7b7b7b;
@@ -28,19 +28,18 @@
         }
     }
 
-    body {background: @black;}
-
     .star-list {
-        .stars {margin: 10px auto 0; 
+        margin: 0;
+        .stars {margin: 0; display: inline-block; vertical-align: middle;
             .filled-animated-star,
             .empty-animated-star,
             .empty-unanimated-star,
             .filled-unanimated-star,
-            .filled-red-unanimated-star {width: 35px; height: 35px; position: relative; float: left;
+            .filled-alternate-unanimated-star {width: 35px; height: 35px; position: relative;
                 .zoom,
                 .fill,
                 .empty {position: absolute; top: 0; left: 0;
-                    .inner {display: table-cell; vertical-align: middle; text-align: center; width: 50px; height: 50px;
+                    .inner {display: table-cell; vertical-align: middle; text-align: center; width: 35px; height: 35px;
                         i {font-size: 25px;}
                     }
                 }
@@ -92,7 +91,7 @@
                 .empty i {opacity: 0; color: @black;}
                 .zoom i {opacity: 0;}
             }
-            .filled-red-unanimated-star {
+            .filled-alternate-unanimated-star {
                 .fill i {opacity: 1; color: @red;}
                 .empty i {opacity: 0; color: @black;}
                 .zoom i {opacity: 0;}

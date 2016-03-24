@@ -1,0 +1,12 @@
+{
+    "preset": "google",
+    "fileExtensions": [ ".js", "jscs" ],
+    "maximumLineLength": 120,
+    //"validateLineBreaks": "LF",
+    "validateIndentation": 4,
+    "disallowKeywords": ["with"],
+    "disallowMultipleVarDecl": null,
+    "disallowSpacesInsideObjectBrackets": null,
+    "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
+    "disallowImplicitTypeConversion": ["string"]
+}

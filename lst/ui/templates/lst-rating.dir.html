@@ -1,23 +1,23 @@
-<div class="angular-lst-rating">
-    <ul class="star-list">
+<div class="lst-rating">
+    <div class="star-list">
         <div class="stars" ng-repeat="star in starList track by $index">
             <div class="{{star.requiredClass}}">
                 <div class="empty">
                     <div class="inner">
-                        <i class="fa fa-star"></i>
+                        <i class="{{star.starIcon}}"></i>
                     </div>
                 </div>
                 <div class="fill">
                     <div class="inner">
-                        <i class="fa fa-star"></i>
+                        <i class="{{star.starIcon}}"></i>
                     </div>
                 </div>
                 <div class="zoom">
                     <div class="inner">
-                        <i class="fa fa-star"></i>
+                        <i class="{{star.starIcon}}"></i>
                     </div>
                 </div>
             </div>
         </div>
-    </ul>
+    </div>
 </div>
