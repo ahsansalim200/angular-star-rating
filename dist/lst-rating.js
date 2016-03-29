@@ -1,3 +1,4 @@
+(function(){angular.module("lst.rating.ui.templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("lst/ui/templates/lst-rating.dir.html","<div class=\"lst-rating\">\n    <div class=\"star-list\">\n        <div class=\"stars\" ng-repeat=\"star in starList track by $index\">\n            <div class=\"{{star.requiredClass}}\">\n                <div class=\"empty\">\n                    <div class=\"inner\">\n                        <i class=\"{{star.emptyStarIcon}}\"></i>\n                    </div>\n                </div>\n                <div class=\"fill\">\n                    <div class=\"inner\">\n                        <i class=\"{{star.starIcon}}\"></i>\n                    </div>\n                </div>\n                <div class=\"zoom\">\n                    <div class=\"inner\">\n                        <i class=\"{{star.starIcon}}\"></i>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");}]);})();
 (function(angular) {
     function lstRatingDirective() {
         var config = {
@@ -23,7 +24,8 @@
         filledAnimatedStar: 'filled-animated-star animate',
         aboveColorBreak: 'filled-unanimated-star',
         belowColorBreak: 'filled-alternate-unanimated-star',
-        starIcon: 'icon-star'
+        starIcon: 'fa fa-star',
+        emptyStarIcon: 'fa fa-star-o'
     };
 
     function lstRatingLink(scope) {
@@ -34,6 +36,7 @@
             for (var i = 0; i < scope.totalNoOfStars; i++) {
                 var star = {};
                 star.starIcon = STAR_CLASS_LIST.starIcon;
+                star.emptyStarIcon = STAR_CLASS_LIST.emptyStarIcon;
                 if (scope.isAnimated.toLowerCase() === 'true') {
                     if (i < noOfStarsFilled) {
                         star.requiredClass = STAR_CLASS_LIST.filledAnimatedStar;
@@ -41,7 +44,7 @@
                         star.requiredClass = STAR_CLASS_LIST.emptyAnimatedStar;
                     }
                 } else {
-                    if (scope.colorBreakPoint && scope.colorBreakPoint.toLowerCase() !== 'false') {
+                    if (scope.colorBreakPoint) {
                         var colorBreak = Math.round((scope.totalNoOfStars / scope.totalNoOfPoints) *
                             parseInt(scope.colorBreakPoint));
                         if (noOfStarsFilled < colorBreak && i < noOfStarsFilled) {
@@ -73,5 +76,3 @@
         .constant('STAR_CLASS_LIST', STAR_CLASS_LIST);
 
 })(angular);
-
-(function(){angular.module("lst.rating.ui.templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("lst/ui/templates/lst-rating.dir.html","<div class=\"lst-rating\">\n    <div class=\"star-list\">\n        <div class=\"stars\" ng-repeat=\"star in starList track by $index\">\n            <div class=\"{{star.requiredClass}}\">\n                <div class=\"empty\">\n                    <div class=\"inner\">\n                        <i class=\"{{star.starIcon}}\"></i>\n                    </div>\n                </div>\n                <div class=\"fill\">\n                    <div class=\"inner\">\n                        <i class=\"{{star.starIcon}}\"></i>\n                    </div>\n                </div>\n                <div class=\"zoom\">\n                    <div class=\"inner\">\n                        <i class=\"{{star.starIcon}}\"></i>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");}]);})();

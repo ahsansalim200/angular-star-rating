@@ -23,7 +23,8 @@
         filledAnimatedStar: 'filled-animated-star animate',
         aboveColorBreak: 'filled-unanimated-star',
         belowColorBreak: 'filled-alternate-unanimated-star',
-        starIcon: 'icon-star'
+        starIcon: 'icon-star',
+        emptyStarIcon: 'icon-star-empty'
     };
 
     function lstRatingLink(scope) {
@@ -34,6 +35,7 @@
             for (var i = 0; i < scope.totalNoOfStars; i++) {
                 var star = {};
                 star.starIcon = STAR_CLASS_LIST.starIcon;
+                star.emptyStarIcon = STAR_CLASS_LIST.emptyStarIcon;
                 if (scope.isAnimated.toLowerCase() === 'true') {
                     if (i < noOfStarsFilled) {
                         star.requiredClass = STAR_CLASS_LIST.filledAnimatedStar;
@@ -41,7 +43,7 @@
                         star.requiredClass = STAR_CLASS_LIST.emptyAnimatedStar;
                     }
                 } else {
-                    if (scope.colorBreakPoint && scope.colorBreakPoint.toLowerCase() !== 'false') {
+                    if (scope.colorBreakPoint) {
                         var colorBreak = Math.round((scope.totalNoOfStars / scope.totalNoOfPoints) *
                             parseInt(scope.colorBreakPoint));
                         if (noOfStarsFilled < colorBreak && i < noOfStarsFilled) {

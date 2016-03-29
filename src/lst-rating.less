@@ -1,8 +1,8 @@
 .lst-rating {
-    @yellow:            #fdd03a;
+    @yellow:            #EDC951;
     @red:               #cb333f;
     @grayDark:          #7b7b7b;
-    @black:             #000000;
+    @black:             #555555;
 
     @keyframes pulse-add {
         0% {
@@ -40,20 +40,15 @@
                 .fill,
                 .empty {position: absolute; top: 0; left: 0;
                     .inner {display: table-cell; vertical-align: middle; text-align: center; width: 35px; height: 35px;
-                        i {font-size: 25px;}
+                        i {font-size: 24px;}
                     }
                 }
             }
             .filled-animated-star {
                 .zoom i {transform: rotate(0deg) scale(0); color: @yellow; opacity: 1}
                 .fill i {opacity: 0; color: @yellow;}
-                .empty i {opacity: 1; color: @black;
-                    text-shadow: 
-                        -1px -1px 0 @grayDark,  
-                         1px -1px 0 @grayDark,
-                        -1px  1px 0 @grayDark,
-                         1px  1px 0 @grayDark;
-                }
+                .empty i {opacity: 1; color: @black;}
+
                 &.animate {
                     .zoom i {transform: rotate(135deg) scale(2.2); opacity: 0; transition-property: transform, opacity; transition-duration: 1000ms; transition-delay: 150ms;}
                     .fill i {opacity: 1; transition-property: opacity; transition-duration: 1500ms; transition-delay: 500ms;}
@@ -62,14 +57,8 @@
             }
             .empty-animated-star {
                 .fill i {opacity: 1; color: @yellow;}
-                .empty i {opacity: 0; color: @black;
-                    text-shadow: 
-                        -1px -1px 0 @grayDark,  
-                         1px -1px 0 @grayDark,
-                        -1px  1px 0 @grayDark,
-                         1px  1px 0 @grayDark;
-                }
-                .zoom i {opacity: 0.25;}
+                .empty i {opacity: 0; color: @black;}
+                .zoom i {opacity: 0.1;}
                 &.animate {
                     .fill i {animation: pulse-remove 300ms; opacity: 0; color: @red; transition-property: opacity, color; transition-duration: 1500ms, 200ms; transition-delay: 750ms, 0ms;}
                     .empty i {opacity: 1; transition-property: opacity; transition-duration: 500ms; transition-delay: 500ms;}
@@ -77,13 +66,7 @@
             }
             .empty-unanimated-star {
                 .fill i {opacity: 0; color: @yellow;}
-                .empty i {opacity: 1; color: @black;
-                    text-shadow: 
-                        -1px -1px 0 @grayDark,  
-                         1px -1px 0 @grayDark,
-                        -1px  1px 0 @grayDark,
-                         1px  1px 0 @grayDark;
-                }
+                .empty i {opacity: 1; color: @black;}
                 .zoom i {opacity: 0;}
             }
             .filled-unanimated-star {
