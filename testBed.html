@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="gradedStarApp">
+<head>
+	<title>Graded Star</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="dist/lst-rating.css">
+</head>
+<body ng-controller="mainController" style="background:#000">
+	<section>
+		<input type="text" ng-model="starConfig2.noOfPoints" value="3"></input>
+	</section>
+	<section class="">
+		<lst-rating total-no-of-stars={{starConfig2.totalNoOfStars}} is-animated="{{starConfig2.isAnimated}}" color-break-point="{{starConfig2.colorBreakPoints}}" no-of-points="starConfig2.noOfPoints" total-no-of-points="{{starConfig2.totalNoOfPoints}}" star-class-list="{{starConfig2.starClassList}}"></lst-rating>
+	</section>
+
+	<section class="">
+		<lst-rating total-no-of-stars={{starConfig3.totalNoOfStars}} is-animated="{{starConfig3.isAnimated}}" color-break-point="{{starConfig3.colorBreakPoints}}" no-of-points="starConfig3.noOfPoints" total-no-of-points="{{starConfig3.totalNoOfPoints}}" star-class-list="{{starConfig3.starClassList}}"></lst-rating>
+	</section>
+
+	<section class="">
+		<lst-rating total-no-of-stars={{starConfig4.totalNoOfStars}} is-animated="{{starConfig4.isAnimated}}" color-break-point="{{starConfig4.colorBreakPoints}}" no-of-points="starConfig4.noOfPoints" total-no-of-points="{{starConfig4.totalNoOfPoints}}" star-class-list="{{starConfig4.starClassList}}"></lst-rating>
+	</section>
+
+	<section class="">
+		<lst-rating total-no-of-stars={{starConfig5.totalNoOfStars}} is-animated="{{starConfig5.isAnimated}}" color-break-point="{{starConfig5.colorBreakPoints}}" no-of-points="starConfig5.noOfPoints" total-no-of-points="{{starConfig5.totalNoOfPoints}}" star-class-list="{{starConfig5.starClassList}}"></lst-rating>
+	</section>
+
+	<section class="">
+		<lst-rating total-no-of-stars={{starConfig6.totalNoOfStars}} is-animated="{{starConfig6.isAnimated}}" color-break-point="{{starConfig6.colorBreakPoints}}" no-of-points="starConfig6.noOfPoints" total-no-of-points="{{starConfig6.totalNoOfPoints}}" star-class-list="{{starConfig6.starClassList}}"></lst-rating>
+	</section>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script type="text/javascript" src="dist/lst-rating.js"></script>
+	<script src="testBed.js"></script>
+</body>
+</html>
