@@ -23,8 +23,8 @@
         filledAnimatedStar: 'filled-animated-star animate',
         aboveColorBreak: 'filled-unanimated-star',
         belowColorBreak: 'filled-alternate-unanimated-star',
-        starIcon: 'icon-star',
-        emptyStarIcon: 'icon-star-empty'
+        starIcon: 'fa fa-star',
+        emptyStarIcon: 'fa fa-star-o'
     };
 
     function lstRatingLink(scope) {
